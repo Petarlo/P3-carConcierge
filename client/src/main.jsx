@@ -8,8 +8,8 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Profile from './pages/Profile';
-import Blog from './pages/Blog.jsx';
-import AboutUs from './pages/AboutUs';
+// import Blog from './pages/Blog.jsx';
+// import AboutUs from './pages/AboutUs';
 import ErrorPage from './pages/ErrorPage';
 
 const router = createBrowserRouter([
@@ -32,15 +32,15 @@ const router = createBrowserRouter([
       {
         path: '/me',
         element: <Profile />
-      }, 
-      {
-        path: '/aboutUs',
-        element: <AboutUs />
-      },
-      {
-        path: '/blog',
-        element: <Blog />
       } 
+      // {
+      //   path: '/aboutUs',
+      //   element: <AboutUs />
+      // },
+      // {
+      //   path: '/blog',
+      //   element: <Blog />
+      // } 
     ]
   }
 ]);
