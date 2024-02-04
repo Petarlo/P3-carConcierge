@@ -5,11 +5,7 @@ const bcrypt = require('bcrypt');
 const Car = require('./Car');
 
 const userSchema = new Schema({
-    firstName: {
-        type: String,
-        required: true
-    },
-    lastName: {
+    username: {
         type: String,
         required: true
     },

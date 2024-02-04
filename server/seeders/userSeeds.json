@@ -1,0 +1,17 @@
+[
+    {
+      "username": "Peta Swan",
+      "email": "peta@carconcierge.dev",
+      "password": "password01"
+    },
+    {
+      "username": "Arlo Bear",
+      "email": "arlo@carconcierge.dev",
+      "password": "password02"
+    },
+    {
+      "username": "John Smith",
+      "email": "john@carconcierge.dev",
+      "password": "password03"
+    }
+]

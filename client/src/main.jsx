@@ -1,7 +1,7 @@
-// import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { ChakraProvider } from '@chakra-ui/react';
+import { createBrowserRouter, resolvePath, RouterProvider } from 'react-router-dom';
+import { ChakraProvider, Box } from '@chakra-ui/react';
+import { CSSReset } from '@chakra-ui/react';
 
 import App from './App.jsx'
 import Home from './pages/Home';
@@ -11,6 +11,20 @@ import Profile from './pages/Profile';
 import Blog from './pages/Blog.jsx';
 import AboutUs from './pages/AboutUs';
 import ErrorPage from './pages/ErrorPage';
+
+const BackgroundImageWrapper = ({ children }) => {
+  return (
+    <Box
+      backgroundImage="url('/src/images/bg.jpg')" 
+      backgroundSize="cover"
+      backgroundPosition="center"
+      minHeight="100vh"
+      bgRepeat="no-repeat"
+    >
+      {children}
+    </Box>
+  );
+};
 
 const router = createBrowserRouter([
   {
@@ -47,6 +61,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <ChakraProvider>
+    <CSSReset />
+    <BackgroundImageWrapper>
     <RouterProvider router={router} />
+    </BackgroundImageWrapper>
   </ChakraProvider>
 )

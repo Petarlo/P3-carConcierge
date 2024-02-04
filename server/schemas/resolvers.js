@@ -1,4 +1,4 @@
-const { Car, User } = require('../models');
+const { Car, User, Blog } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -50,8 +50,42 @@ const resolvers = {
             const token = signToken(user);
           
             return { token, user };
-              }
-           }
+        },          
+    addComment: async (parent, { blogID, commentText }, context) => {
+      if (context.user) {
+        return Blog.findOneAndUpdate(
+          { _id: blogId },
+          {
+            $addToSet: {
+              comments: { commentText, commentAuthor: context.user.username },
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+      throw AuthenticationError;
+    },
+    removeComment: async (parent, { blogid }, context) => {
+      if (context.user) {
+        return Blog.findOneAndUpdate(
+          { _id: blogid },
+          {
+            $pull: {
+              comments: { commentAuthor: context.user.username },
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+      throw AuthenticationError;
+    },
+  },  
 };
 
 module.exports = resolvers;
