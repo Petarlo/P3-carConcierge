@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CarSearchBar from '../components/CarSearchBar';
 import { Box } from '@chakra-ui/react';
+import SearchResults from '../components/SearchResults';
 
 const Home = () => {
+  const [searchResults, setSearchResults] = useState([]);
   const handleSearch = (searchParams) => {
  // Replace this with your actual search logic
  const fakeSearchResults = [
@@ -18,11 +20,10 @@ const Home = () => {
 };
 
 return (
-  <div>
+  <Box>
     <CarSearchBar onSearch={handleSearch} />
-    <SearchResults results={fakeSearchResults} />
-    {/* Other content on your Home page */}
-  </div>
+    <SearchResults results={searchResults} />
+  </Box>
 );
 };
 

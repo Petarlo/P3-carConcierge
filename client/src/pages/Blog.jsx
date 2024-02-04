@@ -1,36 +1,39 @@
 import { useQuery } from '@apollo/client';
-
 import BlogPost from '../components/BlogPost';
-import CommentForm from '../components/CommentForm';
+// import CommentForm from '../components/CommentForm';
+import { Box, Flex, Spinner } from '@chakra-ui/react';
 
 import { QUERY_BLOG } from '../utils/queries';
 
-const BlogPost = () => {
+const Blog = () => {
   const { loading, data } = useQuery(QUERY_BLOG);
   const blogs = data?.blogs || [];
 
   return (
-    <main>
-      <div className="flex-row justify-center">
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
+    <Box>
+      <Flex direction="column" align="center" justify="center">
+        <Box
+          maxW="600px"
+          mb="4"
+          p="4"
+          borderWidth="1px"
+          borderRadius="md"
+          boxShadow="md"
         >
+          {/* Use BlogPost component here */}
           <BlogPost />
-        </div>
-        <div className="col-12 col-md-8 mb-3">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <CommentForm
-              thoughts={thoughts}
-              title="Some Feed for Thought(s)..."
-            />
-          )}
-        </div>
-      </div>
-    </main>
+        </Box>
+        <Box maxW="600px">
+          {/* {loading ? (
+            <Flex align="center" justify="center" h="200px">
+              <Spinner size="xl" />
+            </Flex>
+
+          )} */}
+        </Box>
+      </Flex>
+    </Box>
   );
 };
 
-export default BlogPost;
+export default Blog;
