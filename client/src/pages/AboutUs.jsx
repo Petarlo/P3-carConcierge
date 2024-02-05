@@ -2,6 +2,9 @@ import React from 'react';
 import { Text, Box, Heading } from "@chakra-ui/react";
 import Donation from "../components/Donation";
 import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe('pk_test_51OgISAFsjFGzdreRf0oETFWSIZwin7kOE3p41wxC1eEhR23yTR89cHlZMGwrYoFox5p3IXmVliWNa3DjJgFVIH0a00oDm2Ruju');
 
 const AboutUs = () => {
   return (

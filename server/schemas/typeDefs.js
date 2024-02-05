@@ -16,6 +16,14 @@ type User {
     cars: [Car]
 }
 
+type Blog {
+    _id: ID
+    title: String
+    author: String
+    content: String
+    createdAt: String
+}
+
 type Comment {
     _id: ID
     commentText: String
@@ -33,20 +41,28 @@ type Auth {
 }
 
 type Query {
-    user: User
+    user: [User]
     cars: [Car]
     car(id: ID!): Car
     searchCars(make: String, model: String, year: Int, shape: String): [Car]
     comment(id: ID!): Comment
     donation(session: ID!): Donation
+    blog(id: ID!): Blog
 }
       
 type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
+    addUser(username: String!, email: String!, password: String!): Auth
+    updateUser(username: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
-    addComment(text: String!, author: String!): Comment
-    removeComment(id: ID!): Comment
+    addComment(text: String!, author: String!): Blog
+    removeComment(blogid: ID!): Blog
+    checkout(products: [ProductInput]): Donation
+}
+
+input ProductInput {
+    _id: ID!
+    name: String!
+    price: Float
 }
 `;
 

@@ -1,5 +1,6 @@
 const { Car, User, Blog } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const resolvers = {
     Query: {
@@ -19,8 +20,11 @@ const resolvers = {
             const cars = await Car.find({ make, model, year, shape });
             return cars;
         },
-    },
-
+        blog: async (parent, { id }) => {
+          const blog = await Blog.findById(id);
+          return blog;
+        },
+      },
   Mutation: {
     addUser: async (parent, args) => {
             const user = await User.create(args);
@@ -51,7 +55,7 @@ const resolvers = {
           
             return { token, user };
         },          
-    addComment: async (parent, { blogID, commentText }, context) => {
+    addComment: async (parent, { blogId, commentText }, context) => {
       if (context.user) {
         return Blog.findOneAndUpdate(
           { _id: blogId },
@@ -85,7 +89,39 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
-  },  
-};
-
+      checkout: async (_, args, context) => {
+        try {
+          const url = new URL(context.headers.referer).origin;
+  
+          // ... perform any additional checks or validations
+  
+          const lineItems = args.products.map((product) => ({
+            price_data: {
+              currency: 'aud',
+              product_data: {
+                name: product.name,
+                // Add more product information as needed
+              },
+              unit_amount: product.price * 100,
+            },
+            quantity: 1,
+          }));
+  
+          const session = await stripe.checkout.sessions.create({
+            payment_method_types: ['card'],
+            line_items,
+            mode: 'payment',
+            success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${url}/`,
+          });
+  
+          return { session: session.id };
+        } catch (error) {
+          // Handle errors
+          console.error('Error during checkout:', error);
+          throw new Error('Failed to create checkout session');
+        }
+      },
+    },
+  };
 module.exports = resolvers;

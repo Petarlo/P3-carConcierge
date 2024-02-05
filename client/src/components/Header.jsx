@@ -50,7 +50,7 @@ function Header() {
             <>
               <Link to="/me">
                 <Button size="lg" colorScheme="teal" m="2">
-                  {Auth.getProfile().data.username}'s profile
+                  {Auth.getProfile().data.username}'s garage
                 </Button>
               </Link>
               <Button size="lg" colorScheme="teal" m="2" onClick={logout}>

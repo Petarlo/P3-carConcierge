@@ -18,7 +18,11 @@ const carSchema = new Schema({
     shape: {
         type: String,
         required: true
-    }
+    },
+    listprice: {
+        type: Number,
+        required: false
+    },
 });
 
 const Car = mongoose.model('Car', carSchema);
