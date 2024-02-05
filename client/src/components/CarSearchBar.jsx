@@ -21,7 +21,7 @@ const CarSearchBar = ({ onSearch }) => {
   };
 
   return (
-    <Box p="4" boxShadow="md" borderRadius="md" bg="white">
+    <Box p="4" boxShadow="md" borderRadius="md" bg="gray.500" color='white'>
       <Flex align="center" justify="space-between">
         <Input
           placeholder="Make"

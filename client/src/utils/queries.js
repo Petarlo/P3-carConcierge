@@ -26,6 +26,14 @@ export const QUERY_BLOG = gql`
   }
 `;
 
+export const QUERY_DONATION = gql`
+  query donation($session: ID!) {
+    donation(session: $session) {
+      session
+    }
+  }
+  `;
+
 export const QUERY_SINGLE_BLOG = gql`
   query getSingleBlog($blogId: ID!) {
     blog(blogId: $blogId) {

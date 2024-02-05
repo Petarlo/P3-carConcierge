@@ -18,7 +18,9 @@ const BlogPost = ({ title, content, author, date }) => {
   };
 
   return (
-    <Box mb="4">
+    <Box mb="4"
+    bg='gray.500'
+    color='white'>
       <Heading as="h2" mb="2">
         {title}
       </Heading>
@@ -29,7 +31,10 @@ const BlogPost = ({ title, content, author, date }) => {
       <Text>{content}</Text>
 
       {/* Comment Box */}
-      <Box mt="4">
+      <Box 
+      mt="4"
+      bg='gray.500'
+      color='white'>
         <Heading as="h3" mb="2" fontSize="lg">
           Leave a Comment
         </Heading>

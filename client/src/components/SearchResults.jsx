@@ -3,7 +3,7 @@ import { Box, Text, VStack } from '@chakra-ui/react';
 
 const SearchResults = ({ results }) => {
   return (
-    <Box mt="4" p="4" borderWidth="1px" borderRadius="md" boxShadow="md">
+    <Box mt="4" p="4" borderWidth="1px" borderRadius="md" boxShadow="md" bg='gray.500' color='white'>
       <Text fontSize="xl" fontWeight="bold" mb="4">
         Search Results
       </Text>

@@ -23,6 +23,10 @@ type Comment {
     createdAt: String
 }
 
+type Donation {
+    session: ID
+}
+
 type Auth {
     token: ID!
     user: User
@@ -33,6 +37,8 @@ type Query {
     cars: [Car]
     car(id: ID!): Car
     searchCars(make: String, model: String, year: Int, shape: String): [Car]
+    comment(id: ID!): Comment
+    donation(session: ID!): Donation
 }
       
 type Mutation {

@@ -34,7 +34,7 @@ const Signup = () => {
   };
 
   return (
-    <Box mt="4" mx="auto" maxW="md">
+    <Box mt="4" mx="auto" maxW="md" bg='gray.500' color='white' borderWidth="1px" borderRadius="md" boxShadow="md">
       <Heading as="h2" mb="4" textAlign="center">
         Sign Up
       </Heading>
