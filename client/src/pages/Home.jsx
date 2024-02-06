@@ -12,14 +12,13 @@ const Home = () => {
   const handleSearch = (searchParams) => {
     getCars({
       variables: {
-        ...searchParams, // Spread the searchParams into variables
+        ...searchParams, 
       },
     });
   };
 
-  // useEffect to handle data changes and update searchResults
   useEffect(() => {
-    if (data) {
+    if (data?.searchCars) {
       setSearchResults(data.searchCars);
     }
   }, [data]);

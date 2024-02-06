@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Box, Heading, Text, Container, Stack } from '@chakra-ui/react';
 import BlogPost from '../components/BlogPost';
 import Comment from '../components/Comment';
+import { QUERY_BLOG } from '../utils/queries';
+import { useQuery } from '@apollo/client';
 
 const Blog = () => {
   // Assume you have some state to manage your blog posts and comments

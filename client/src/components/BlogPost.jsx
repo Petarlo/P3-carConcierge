@@ -37,7 +37,7 @@ const BlogPost = ({ post }) => {
       // Use the removeCommentMutation to send a mutation to remove a comment
       await removeCommentMutation({
         variables: {
-          blogid: post.id, // Assuming the blogid is the identifier for the blog post
+          commentId: commentId, // Assuming the blogid is the identifier for the blog post
         },
       });
     } catch (error) {

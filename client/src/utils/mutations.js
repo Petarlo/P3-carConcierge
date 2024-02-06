@@ -41,8 +41,8 @@ export const ADD_COMMENT = gql`
 `;
 
 export const REMOVE_COMMENT = gql`
- mutation removeComment($blogId: ID!) {
-  removeComment(blogId: $blogId) {
+ mutation removeComment($commentId: ID!) {
+  removeComment(commentId: $commentId) {
   _id
   }
   }

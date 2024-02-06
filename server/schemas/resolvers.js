@@ -54,7 +54,7 @@ const resolvers = {
           
             return { token, user };
         },          
-    addComment: async (parent, { blogId, commentText }, context) => {
+    addComment: async (parent, { id, commentText }, context) => {
       if (context.user) {
         return Blog.findOneAndUpdate(
           { _id: blogId },
@@ -71,10 +71,10 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
-    removeComment: async (parent, { blogid }, context) => {
+    removeComment: async (parent, { blogId }, context) => {
       if (context.user) {
         return Blog.findOneAndUpdate(
-          { _id: blogid },
+          { _id: blogId },
           {
             $pull: {
               comments: { commentAuthor: context.user.username },
