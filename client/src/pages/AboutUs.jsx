@@ -8,13 +8,14 @@ const stripePromise = loadStripe('pk_test_51OgISAFsjFGzdreRf0oETFWSIZwin7kOE3p41
 
 const AboutUs = () => {
   return (
-    <Box mt="4" mx="auto" maxW="md" bg='gray.500' color='white' borderWidth="1px" borderRadius="md" boxShadow="md">
+    <Box p="4" m="4" mx="auto" maxW="md" bg='gray.500' color='white' borderWidth="1px" borderRadius="md" boxShadow="md">
         <Heading as="h2" mb="4" textAlign="center">
           About Us
         </Heading>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, necessitatibus deleniti obcaecati voluptatum velit aliquid cum. 
-        Soluta facilis accusamus corrupti sint similique. Aliquam quae laborum velit cumque nobis quasi esse.
+      <Text fontSize="larger">
+        carConcierge was created to help you find your next car without the hard sell!<br></br>
+        This is a labour of love and donations let keep sharing our knowledge.<br></br>
+        If you can help, please click the donation button below.
       </Text>
       <Elements stripe={stripePromise}>
       <Donation />

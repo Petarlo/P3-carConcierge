@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
-import { Box, Flex, Heading, Button, ButtonGroup } from '@chakra-ui/react';
+import { Box, Flex, Heading, Button, ButtonGroup, Image, Spacer } from '@chakra-ui/react';
 
+import LogoImage from '../assets/images/Logo-removebg-preview.png';
 function Header() {
   const logout = (event) => {
     event.preventDefault();
@@ -15,7 +16,7 @@ function Header() {
       bg="gray.500"
       color="white"
       mb="4"
-      py="3"
+      p="3"
       display="flex"
       flexDirection="row"
       alignItems="center"
@@ -28,14 +29,15 @@ function Header() {
       >
         <Box>
           <Link to="/" textDecoration="none">
+          <Image src={LogoImage} alt="Logo" boxSize="50px" mr="3" />
             <Heading as="h1" fontSize="2xl" m="0">
               carConcierge
             </Heading>
           </Link>
           <Box m="0">The easy way to find your next car!</Box>
         </Box>
-
-        <ButtonGroup>
+      <Spacer />
+        <ButtonGroup marginLeft="auto">
           <Link to="/blog">
             <Button size="lg" colorScheme="teal" m="2">
               Blog
