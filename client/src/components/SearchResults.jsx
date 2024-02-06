@@ -22,7 +22,8 @@ const SearchResults = ({ results }) => {
                 {car.make} {car.model}
               </Text>
               <Text>Year: {car.year}</Text>
-              <Text>Type: {car.type}</Text>
+              <Text>Type: {car.shape}</Text>
+              <Text>ListPrice: {car.listprice}</Text>
             </Box>
           ))}
         </VStack>

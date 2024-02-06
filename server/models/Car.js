@@ -5,19 +5,19 @@ const { Schema } = mongoose;
 const carSchema = new Schema({
     make: {
         type: String,
-        required: true
+        required: false
     },
     model: {
         type: String,
-        required: true
+        required: false
     },
     year: {
         type: Number,
-        required: true
+        required: false
     },
     shape: {
         type: String,
-        required: true
+        required: false
     },
     listprice: {
         type: Number,

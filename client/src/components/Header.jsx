@@ -11,21 +11,13 @@ function Header() {
   };
 
   return (
-    <Box
+    <Flex
       as="header"
       bg="gray.500"
       color="white"
       mb="4"
-      p="3"
-      display="flex"
-      flexDirection="row"
-      alignItems="center"
-    >
-      <Flex
-        container
-        maxW="container.lg"
-        justify="space-between"
-        align="center"
+      p="2"
+      minWidth="max-content" alignItems="centre"
       >
         <Box>
           <Link to="/" textDecoration="none">
@@ -37,7 +29,7 @@ function Header() {
           <Box m="0">The easy way to find your next car!</Box>
         </Box>
       <Spacer />
-        <ButtonGroup marginLeft="auto">
+        <ButtonGroup pt="5" gap="2">
           <Link to="/blog">
             <Button size="lg" colorScheme="teal" m="2">
               Blog
@@ -75,9 +67,7 @@ function Header() {
           )}
         </ButtonGroup>
       </Flex>
-    </Box>
   );
 }
 
 export default Header;
-

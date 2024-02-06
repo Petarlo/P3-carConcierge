@@ -1,23 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CarSearchBar from '../components/CarSearchBar';
 import { Box } from '@chakra-ui/react';
 import SearchResults from '../components/SearchResults';
-import useCarSearch from '../hooks/useCarSearch'; // Import the custom hook
+import { QUERY_SEARCHCARS } from '../utils/queries';
+import { useLazyQuery } from '@apollo/client';
 
 const Home = () => {
   const [searchResults, setSearchResults] = useState([]);
-  const { loading, error, searchCars } = useCarSearch(); // Use the custom hook
+  const [getCars, { loading, error, data }] = useLazyQuery(QUERY_SEARCHCARS);
 
   const handleSearch = (searchParams) => {
-    // Call the searchCars function from the custom hook
-    searchCars(searchParams)
-      .then((data) => {
-        setSearchResults(data);
-      })
-      .catch((error) => {
-        console.error('Error fetching search results:', error);
-      });
+    getCars({
+      variables: {
+        ...searchParams, // Spread the searchParams into variables
+      },
+    });
   };
+
+  // useEffect to handle data changes and update searchResults
+  useEffect(() => {
+    if (data) {
+      setSearchResults(data.searchCars);
+    }
+  }, [data]);
 
   return (
     <Box>

@@ -80,7 +80,7 @@ export const QUERY_CHECKOUT = gql`
   }
   `;
 
-export const SEARCHCARS = gql`
+export const QUERY_SEARCHCARS = gql`
   query searchCars($make: String, $model: String, $year: Int, $shape: String, $listprice: Float) {
     searchCars(make: $make, model: $model, year: $year, shape: $shape, listprice: $listprice) {
       _id

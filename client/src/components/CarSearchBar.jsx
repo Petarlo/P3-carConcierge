@@ -7,7 +7,7 @@ const CarSearchBar = ({ onSearch }) => {
     model: '',
     year: '',
     type: '',
-    price: '',
+    listprice: '',
   });
 
   const handleInputChange = (field, value) => {
@@ -48,6 +48,7 @@ const CarSearchBar = ({ onSearch }) => {
           placeholder="Type"
           value={searchParams.type}
           onChange={(e) => handleInputChange('type', e.target.value)}
+          color="black"
         >
           <option value="sedan">Sedan</option>
           <option value="suv">SUV</option>
