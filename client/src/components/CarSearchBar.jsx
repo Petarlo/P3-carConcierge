@@ -22,7 +22,7 @@ const CarSearchBar = ({ onSearch }) => {
   };
 
   return (
-    <Box p="4" boxShadow="md" borderRadius="md" bg="gray.500" color='white'>
+    <Box p="4" boxShadow="md" borderRadius="md" bg="gray.500" color='white' borderWidth="1px">
       <Flex align="center" justify="space-between">
         <Input
           placeholder="Make"
@@ -54,7 +54,7 @@ const CarSearchBar = ({ onSearch }) => {
           <option value="suv">SUV</option>
           <option value="truck">Truck</option>
         </Select>
-        <Button colorScheme="teal" onClick={handleSearch}>
+        <Button colorScheme="teal" size="md" onClick={handleSearch}>
           Search
         </Button>
       </Flex>

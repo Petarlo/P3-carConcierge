@@ -18,6 +18,7 @@ function Header() {
       mb="4"
       p="2"
       minWidth="max-content" alignItems="centre"
+      px="10"
       >
         <Box>
           <Link to="/" textDecoration="none">

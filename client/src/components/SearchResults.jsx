@@ -19,8 +19,8 @@ const SearchResults = ({ results }) => {
               boxShadow="sm"
             >
               <Text fontSize="lg" fontWeight="bold" mb="2">
-                {car.make} {car.model}
-              </Text>
+                Make:{car.make} </Text>
+              <Text>Model: {car.model}</Text>
               <Text>Year: {car.year}</Text>
               <Text>Type: {car.shape}</Text>
               <Text>ListPrice: {car.listprice}</Text>
