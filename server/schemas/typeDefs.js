@@ -5,6 +5,7 @@ type Car {
     model: String
     year: Int
     shape: String
+    listprice: Int
 }
 
 type User {
@@ -44,7 +45,7 @@ type Query {
     user: [User]
     cars: [Car]
     car(id: ID!): Car
-    searchCars(make: String, model: String, year: Int, shape: String): [Car]
+    searchCars(make: String, model: String, year: Int, shape: String, listprice: Int): [Car]
     comment(id: ID!): Comment
     donation(session: ID!): Donation
     blog(id: ID!): Blog

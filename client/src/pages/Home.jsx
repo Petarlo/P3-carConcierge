@@ -2,29 +2,29 @@ import React, { useState } from 'react';
 import CarSearchBar from '../components/CarSearchBar';
 import { Box } from '@chakra-ui/react';
 import SearchResults from '../components/SearchResults';
+import useCarSearch from '../hooks/useCarSearch'; // Import the custom hook
 
 const Home = () => {
   const [searchResults, setSearchResults] = useState([]);
+  const { loading, error, searchCars } = useCarSearch(); // Use the custom hook
+
   const handleSearch = (searchParams) => {
- // Replace this with your actual search logic
- const fakeSearchResults = [
-    { id: 1, make: 'Toyota', model: 'Camry', year: 2022, type: 'sedan' },
-    { id: 2, make: 'Honda', model: 'Civic', year: 2021, type: 'sedan' },
-    // Add more fake search results as needed
-  ];
+    // Call the searchCars function from the custom hook
+    searchCars(searchParams)
+      .then((data) => {
+        setSearchResults(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching search results:', error);
+      });
+  };
 
-  // Set the search results in the state or handle them accordingly
-  // For now, just log them to the console
-  console.log('Search Parameters:', searchParams);
-  console.log('Search Results:', fakeSearchResults);
-};
-
-return (
-  <Box>
-    <CarSearchBar onSearch={handleSearch} />
-    <SearchResults results={searchResults} />
-  </Box>
-);
+  return (
+    <Box>
+      <CarSearchBar onSearch={handleSearch} />
+      <SearchResults results={searchResults} />
+    </Box>
+  );
 };
 
 export default Home;

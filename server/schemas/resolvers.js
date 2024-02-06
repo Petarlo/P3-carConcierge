@@ -16,8 +16,8 @@ const resolvers = {
             const car = await Car.findById(id);
             return car;
         },
-        searchCars: async (parent, { make, model, year, shape }) => {
-            const cars = await Car.find({ make, model, year, shape });
+        searchCars: async (parent, { make, model, year, shape, listprice }) => {
+            const cars = await Car.find({ make, model, year, shape, listprice });
             return cars;
         },
         blog: async (parent, { id }) => {
