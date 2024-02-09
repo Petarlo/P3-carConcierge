@@ -15,7 +15,7 @@ import ErrorPage from './pages/ErrorPage';
 const BackgroundImageWrapper = ({ children }) => {
   return (
     <Box
-      backgroundImage="url('./src/assets/images/bg.jpg')" 
+      backgroundImage="url('./images/bg.jpg')" 
       backgroundSize="cover"
       backgroundPosition="center"
       minHeight="100vh"

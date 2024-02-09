@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 import { Box, Flex, Heading, Button, ButtonGroup, Image, Spacer } from '@chakra-ui/react';
 
-import LogoImage from '../assets/images/Logo-removebg-preview.png';
+import LogoImage from '../../images/Logo-removebg-preview.png';
 function Header() {
   const logout = (event) => {
     event.preventDefault();
